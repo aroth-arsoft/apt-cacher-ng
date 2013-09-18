@@ -1,0 +1,20 @@
+#!/bin/sh -e
+
+NAME=apt-cacher-ng
+CDIR=/var/cache/$NAME
+LDIR=/var/log/$NAME
+
+if [ "$1" = "purge" ]; then
+
+   rm -rf $CDIR
+   rm -f $LDIR/apt-cacher.err $LDIR/apt-cacher.log $LDIR/apt-cacher.log.* $LDIR/maint_*.log
+   rmdir $LDIR 2>/dev/null || true
+   rm -rf /var/lib/apt-cacher-ng
+
+   dpkg-statoverride --remove /etc/apt-cacher-ng/security.conf 2>/dev/null || true
+
+   deluser --quiet --system $NAME 2>/dev/null || userdel --force $NAME 2>/dev/null || true
+   delgroup --quiet --system $NAME 2>/dev/null || groupdel $NAME 2>/dev/null || true
+fi
+
+#DEBHELPER#
