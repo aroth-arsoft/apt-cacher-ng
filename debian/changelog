@@ -1,3 +1,9 @@
+apt-cacher-ng (0.7.18-1.2~aroth~ppa2) raring; urgency=low
+
+  * fixed trouble with precise depends
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Tue, 24 Sep 2013 08:12:29 +0200
+
 apt-cacher-ng (0.7.18-1.2~aroth~ppa1) raring; urgency=low
 
   * building fixes for raring and precise
