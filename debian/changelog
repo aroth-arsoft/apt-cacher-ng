@@ -1,3 +1,9 @@
+apt-cacher-ng (0.7.24-1.1~aroth~ppa2) saucy; urgency=low
+
+  * fixed build trouble of missing files
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 29 Dec 2013 16:29:10 +0100
+
 apt-cacher-ng (0.7.24-1.1~aroth~ppa1) saucy; urgency=low
 
   * backport latest version for ubuntu
