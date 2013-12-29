@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-cacher-ng_sv\n"
 "Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-02 20:43+0000\n"
+"POT-Creation-Date: 2013-12-19 20:53+0100\n"
 "PO-Revision-Date: 2009-11-03 08:17+0100\n"
 "Last-Translator: Martin Ågren <martin.agren@gmail.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
@@ -77,3 +77,91 @@ msgid ""
 msgstr ""
 "Väljer du \"Ingen automatisk inställning\" kommer den existerande "
 "konfigurationen lämnas oförändrad. Den kommer behöva uppdateras manuellt."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:3001
+msgid "Bind Address(es):"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:3001
+msgid ""
+"Addresses or hostnames to listen on, multiple entries must be separated by "
+"spaces. Each entry must be an exact address (IP or hostname) which is "
+"associated with a local network interface. Generic protocol specific "
+"addresses are supported, like 0.0.0.0 for listening on all IPv4 enabled "
+"interfaces. Leaving this empty (the default setting) means listening on all "
+"interfaces and protocols."
+msgstr ""
+
+#. Type: string
+#. Description
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:3001 ../apt-cacher-ng.templates:6001
+msgid ""
+"The special word \"keep\" keeps the value from the current (or default) "
+"configuration unchanged."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:4001
+msgid "Listening TCP port:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:4001
+msgid ""
+"Configure at which TCP port should Apt-Cacher NG listen for incoming HTTP "
+"(proxy) requests. Default is port 3142, and it can be set to 9999 to emulate "
+"apt-proxy."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:4001
+msgid ""
+"If left empty, the value from the current configuration remains unchanged."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:5001
+msgid "Top level directory for package cache:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:5001
+msgid ""
+"The main cache storage directory should be located on a file system without "
+"file name restrictions."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:5001
+msgid ""
+"If left empty, the value from the current configuration remains unchanged or "
+"is set to default directory /var/cache/apt-cacher-ng."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:6001
+msgid "Proxy to use for downloads:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:6001
+msgid ""
+"The specification of another proxy which shall be used for downloads. "
+"Username and password for the proxy server can be included here following "
+"the user:pass@host:port scheme but see the manual for limitations. If set to "
+"empty, direct connection is used."
+msgstr ""

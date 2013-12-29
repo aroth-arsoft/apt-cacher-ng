@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-cacher-ng 0.4.1\n"
 "Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
-"POT-Creation-Date: 2009-11-02 20:43+0000\n"
+"POT-Creation-Date: 2013-12-19 20:53+0100\n"
 "PO-Revision-Date: 2009-10-26 21:30 +0100\n"
 "Last-Translator: Eduard Bloch <blade@debian.org>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -14,6 +14,8 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Source-Language: C\n"
 
 #. Type: select
 #. Choices
@@ -75,3 +77,124 @@ msgid ""
 msgstr ""
 "Auswahl von »Keine automatisierte Konfiguration« rührt bestehende "
 "Konfigurationsdateien nicht an. Diese müssen dann per Hand gepflegt werden."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:3001
+msgid "Bind Address(es):"
+msgstr "Verbundene Adressen:"
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:3001
+msgid ""
+"Addresses or hostnames to listen on, multiple entries must be separated by "
+"spaces. Each entry must be an exact address (IP or hostname) which is "
+"associated with a local network interface. Generic protocol specific "
+"addresses are supported, like 0.0.0.0 for listening on all IPv4 enabled "
+"interfaces. Leaving this empty (the default setting) means listening on all "
+"interfaces and protocols."
+msgstr ""
+"Verbindung annehmende Adressen oder Rechnernamen, mehrere Einträge sind mit "
+"Leerzeichen zu trennen. Jeder Eintrag entspricht einer Adresse (IP oder "
+"Computername), hinter der eine lokale Netzwerkschnittstelle steht. "
+"Generische protokollspezifische Adressen werden ebenfalls unterstützt, wie "
+"0.0.0.0 als Beschreibung sämtlicher IPv4-Schnittstellen. Ein leerer Eintrag "
+"(Standardeinstellung) bedeutet alle Schnittstellen und Protokolle."
+
+#. Type: string
+#. Description
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:3001 ../apt-cacher-ng.templates:6001
+msgid ""
+"The special word \"keep\" keeps the value from the current (or default) "
+"configuration unchanged."
+msgstr ""
+"Das besondere Schlüsselwort \"keep\" lässt die derzeitige Einstellung "
+"unverändert (gegebenenfalls die Standardeinstellung)."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:4001
+msgid "Listening TCP port:"
+msgstr "Annehmender TCP-Port:"
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:4001
+msgid ""
+"Configure at which TCP port should Apt-Cacher NG listen for incoming HTTP "
+"(proxy) requests. Default is port 3142, and it can be set to 9999 to emulate "
+"apt-proxy."
+msgstr ""
+"Konfiguriert den TCP-Port, auf dem Apt-Cacher NG die hereinkommenden "
+"(Proxy-)HTTP-Anfragen annimmt. Standard ist 3142, es kann auch auf 9999 "
+"gesetzt werden, um apt-proxy zu emulieren."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:4001
+msgid ""
+"If left empty, the value from the current configuration remains unchanged."
+msgstr "Eine leere Zeile belässt die derzeitige Konfiguration unverändert."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:5001
+msgid "Top level directory for package cache:"
+msgstr "Oberstes Verzeichnis des Paket-Caches:"
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:5001
+msgid ""
+"The main cache storage directory should be located on a file system without "
+"file name restrictions."
+msgstr ""
+"Das Hauptverzeichnis des Paket-Caches sollte auf einem Dateisystem ohne "
+"Beschränkungen bezüglich Dateinamen liegen."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:5001
+msgid ""
+"If left empty, the value from the current configuration remains unchanged or "
+"is set to default directory /var/cache/apt-cacher-ng."
+msgstr ""
+"Eine leere Eingabe belässt die derzeitige Konfiguration unverändert "
+"(gegebenenfalls auf dem Standardverzeichnis /var/cache/apt-cacher-ng )."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:6001
+msgid "Proxy to use for downloads:"
+msgstr "Proxy für das Herunterladen:"
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:6001
+msgid ""
+"The specification of another proxy which shall be used for downloads. "
+"Username and password for the proxy server can be included here following "
+"the user:pass@host:port scheme but see the manual for limitations. If set to "
+"empty, direct connection is used."
+msgstr ""
+"Die Angabe eines anderen Proxy, der für Downloads verwendet wird. "
+"Benutzername und Passwort für diesen Proxy können hier nach dem Muster "
+"benutzer:passwort@rechner:port übergeben werden, aber siehe auch Handbuch "
+"für Einschränkungen. Ein leerer String hier bedeutet, direkte Verbindungen "
+"zu verwenden."
+
+#~ msgid "Example: localhost 192.168.7.254"
+#~ msgstr "Beispiel: localhost 192.168.7.254"
+
+#~ msgid ""
+#~ "A special word \"keep\" can be used here to avoid changing this value and "
+#~ "use the current value instead."
+#~ msgstr ""
+#~ "Das Schlüsselwort \"keep\" an dieser Stelle sorgt dafür, dass der "
+#~ "derzeitige Wert unverändert bleibt."
+
+#~ msgid "Default: all (will listen on all interfaces and protocols)"
+#~ msgstr "Standard: all (lauscht auf allen Anschlüssen und Protokollen)"

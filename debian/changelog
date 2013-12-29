@@ -1,3 +1,86 @@
+apt-cacher-ng (0.7.24-1.1~aroth~ppa1) saucy; urgency=low
+
+  * backport latest version for ubuntu
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 29 Dec 2013 15:04:18 +0100
+
+apt-cacher-ng (0.7.24-1) unstable; urgency=medium
+
+  * New upstream version
+  * Review of maintainer scripts, now responsive to modification of
+    CacheDir in existing configuration file(s)
+  * Defensive behavior of Debconf integration (closes: #732606) and including
+    NEWS.Debian to explain the extended config handling 
+  * added libssl-dev to build dependencies (now really closes: #729508)
+  * fixing build failure on architectures where ancgfs is not built (i.e. Hurd)
+  * Debconf description improvement in better German translation
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 19 Dec 2013 21:10:19 +0100
+
+apt-cacher-ng (0.7.23-1) unstable; urgency=medium
+
+  * New upstream version
+    + fixes reading of certain .xz files (closes: #729941, #731804)
+    + HTTPS support (closes: #729508)
+  * more debconf controlled settings injected through a separate config
+    file, partially based on the patch from 
+    Geert Stappers <stappers@stappers.nl> (closes: #726656)
+  * policy version bump, and no longer recommending perl, there are enough
+    functionality replacements implemented to work with just perl-base
+  * changed maximum version counts in lograte configuration to lower numbers
+
+ -- Eduard Bloch <blade@debian.org>  Tue, 17 Dec 2013 21:18:15 +0100
+
+apt-cacher-ng (0.7.22-1) unstable; urgency=low
+
+  * New upstream version
+    + fixes backend list parser (closes: #731770, LP:#1259191)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 09 Dec 2013 21:32:14 +0100
+
+apt-cacher-ng (0.7.21-1) unstable; urgency=low
+
+  * New upstream version
+    + adds ftp.debian.com alias to the DB (closes: #730365, LP: #1254441)
+    + adds consistent credentials handling for URLs specs (closes: #729505)
+    + workaround for non-free/.../Packages.xz file reading in expiration
+      activities (bug 729941)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 09 Dec 2013 00:20:09 +0100
+
+apt-cacher-ng (0.7.20-2) unstable; urgency=low
+
+  * Create the user before doing dpkg-statoverride (closes: #730360)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 25 Nov 2013 22:03:52 +0100
+
+apt-cacher-ng (0.7.20-1) unstable; urgency=low
+
+  * New upstream version
+    + Attempts to recreate its cache directory (closes: #729939)
+  * make sure not to fail on postrm (purge) when the config directory
+    still contains unexpected files (closes: #728236)
+  * now really removing config files maintained only by maintainer scripts from
+    dpkg's conffile tracking (closes: #728263)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 23 Nov 2013 20:54:35 +0100
+
+apt-cacher-ng (0.7.19-1) unstable; urgency=low
+
+  [ Eduard Bloch ]
+  * New upstream version
+    + prints errno message from a failed daemon() call (closes: #726925)
+    + suppresses output from the red utility leaked to stderr (closes: #722600)
+  * Attempting to use a http proxy from apt settings for the mirror lookup in
+    postinst (closes: #720954)
+  * no longer delivering empty conffiles (backends_*, closes: #720296)
+  [ Julian Andres Klode ]
+  * Included IPv6 in the avahi config (closes: #722907)
+  [ Lukas Anzinger <l.anzinger@gmail.com> ]
+  * Converted apt-cacher-ng to debhelper 9 (closes: #722712)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 28 Oct 2013 22:20:09 +0100
+
 apt-cacher-ng (0.7.18-1.2~aroth~ppa3) raring; urgency=low
 
   * try again
@@ -238,7 +321,7 @@ apt-cacher-ng (0.7.1-1ubuntu1) precise; urgency=low
 
 apt-cacher-ng (0.7.1-1) unstable; urgency=low
 
-  * New upstream releases
+  * New upstream release
     + attempts to detect errors in HTTP stream and invalidate possibly
       damaged files (closes: #658550)
     + don't consider (almost) empty uncompressed file as damaged
@@ -248,7 +331,7 @@ apt-cacher-ng (0.7.1-1) unstable; urgency=low
 
 apt-cacher-ng (0.7-1) unstable; urgency=medium
 
-  * New upstream releases
+  * New upstream release
     + fixes asymmetric lifetime handling for file objects with URL encoded ~
       char in the filename (closes: #658550, #658680)
 
@@ -1040,3 +1123,4 @@ apt-cacher-ng (0.0.9-1) experimental; urgency=low
   * Initial release (Closes: #447514), going to experimental for first testing
 
  -- Eduard Bloch <blade@debian.org>  Thu, 01 Nov 2007 18:22:27 +0100
+

@@ -1,7 +1,7 @@
 /var/log/apt-cacher-ng/apt-cache*.log {
         size 10M
         missingok
-        rotate 12
+        rotate 7
         compress
         delaycompress
         notifempty
@@ -16,7 +16,7 @@
 /var/log/apt-cacher-ng/apt-cache*.err {
         size 10M
         missingok
-        rotate 700
+        rotate 7
         compress
         delaycompress
         notifempty
