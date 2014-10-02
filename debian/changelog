@@ -1,3 +1,108 @@
+apt-cacher-ng (0.8.0~rc3-1.1~aroth~ppa1) trusty; urgency=medium
+
+  * bring new upstream version to trusty
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Thu, 02 Oct 2014 16:29:32 +0200
+
+apt-cacher-ng (0.8.0~rc3-1) unstable; urgency=low
+
+  * New upstream version, first Sid upload of 0.8.x 
+    + systemd related changes: startup notification, restart on crashes
+      (closes: #752255)
+    + Now really fixes lookup of .default files in the resource directory
+      (closes: #736579)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 20 Sep 2014 12:53:20 +0200
+
+apt-cacher-ng (0.8.0~pre3-1) experimental; urgency=low
+
+  * New upstream prerelease version
+  * Corrected passing of hardening flags from CPPFLAGS down to cmake
+    (workaround from wiki, exporting variables manually and adding CPPFLAGS to
+    CXXFLAGS, closes: #760699)
+
+ -- Eduard Bloch <blade@debian.org>  Tue, 09 Sep 2014 22:54:01 +0200
+
+apt-cacher-ng (0.8.0~pre2-1) experimental; urgency=low
+
+  * New upstream prerelease version
+    + Added NEWS.Debian to the volatile patterns filter (LP: #1350432)
+    + Special workaround for clients cutting parts of the file header with
+      partial request (closes: #744727)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 30 Aug 2014 21:41:24 -0700
+
+apt-cacher-ng (0.8.0~pre1-1) experimental; urgency=low
+
+  * New upstream prerelease version
+    + handles side effects on mmaped files more carefully (maybe a fix
+      for #722360)
+    + adds special handling for .gpg files without impact on static file
+      patterns (closes: #720165)
+  * Fixed links to gentoo_mirrors.default (closes: #736579)
+  * Added Russian translation (closes: #736252)
+  * Moved avahi-daemon to Suggests (LP: #1259191)
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 17 Jul 2014 22:40:25 +0200
+
+apt-cacher-ng (0.7.27-1) unstable; urgency=medium
+
+  * New upstream release
+    + Includes fix of CVE-2014-4510, package patch dropped
+  * Moved avahi-daemon to Suggests (LP: #1259191)
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 17 Jul 2014 21:10:25 +0200
+
+apt-cacher-ng (0.7.26-2) unstable; urgency=high
+
+  * Do not print the submitted (raw) file path in the response body of a 403
+    message (CVE-2014-4510)
+
+ -- Eduard Bloch <blade@debian.org>  Tue, 24 Jun 2014 19:19:29 +0200
+
+apt-cacher-ng (0.7.26-1) unstable; urgency=medium
+
+  * New upstream version
+    + fixes the link action for quick forced file expiration (closes: #736684)
+    + fixes incorrect percent escaping in some cases (thanks! closes: #737268)
+    + adds gentoo_mirrors.default, config should work now (closes: #736579)
+  * reconsidered purging strategy, only remove files in the default location
+    because when the user changed the location manually to an external folder
+    then the data there better should not be destroyed (also closes: #736684)
+  * added http.debian.net as another special host like cdn.d.n (closes: #741272)
+  * Debconf templates and debian/control reviewed by the debian-l10n-
+    english team as part of the Smith review project. Closes: #733087
+  * [Debconf translation updates]
+  * Russian (Yuri Kozlov).  Closes: #736847
+  * Danish (Joe Hansen).  Closes: #736876
+  * Brazilian Portuguese (Adriano Rafael Gomes).  Closes: #737468
+  * French (Jean-Baka Domelevo Entfellner).  Closes: #737714
+  * Basque (Joseba Goitia Gandiaga).  Closes: #738021
+  * Czech (Miroslav Kure).  Closes: #738355
+  * Italian (Beatrice Torracca).  Closes: #738574
+  * Japanese (Hideki Yamane (Debian-JP)).  Closes: #738724
+  * Polish (Michał Kułach).  Closes: #738746
+  * Portuguese (Pedro Ribeiro).  Closes: #738790
+  * Spanish (Matías A. Bellone).  Closes: #739799
+  * German (Eduard Bloch)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 22 Mar 2014 14:20:56 +0100
+
+apt-cacher-ng (0.7.25-1) unstable; urgency=medium
+
+  * New upstream version with various bugfixes
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 05 Jan 2014 12:29:56 +0100
+
+apt-cacher-ng (0.7.24-2) unstable; urgency=medium
+
+  * Postinst now behaves more sensibly on configuration read errors during
+    CacheDir plausibility check, also setting more defensive permissions
+    to some protected (generated) config files at least for future
+    installations (closes: #733141)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 30 Dec 2013 01:25:40 +0100
+
 apt-cacher-ng (0.7.24-1.1~aroth~ppa2) saucy; urgency=low
 
   * fixed build trouble of missing files

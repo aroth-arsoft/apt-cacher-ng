@@ -1,21 +1,21 @@
 # translation of ru.po to Russian
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the apt-cacher-ng package.
 #
-# Yuri Kozlov <yuray@komyakino.ru>, 2009.
+# Yuri Kozlov <yuray@komyakino.ru>, 2009, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: apt-cacher-ng 0.4-2\n"
+"Project-Id-Version: apt-cacher-ng 0.7.25-1\n"
 "Report-Msgid-Bugs-To: apt-cacher-ng@packages.debian.org\n"
-"POT-Creation-Date: 2013-12-19 20:53+0100\n"
-"PO-Revision-Date: 2009-11-07 10:15+0300\n"
+"POT-Creation-Date: 2014-01-27 06:52+0100\n"
+"PO-Revision-Date: 2014-01-21 19:26+0400\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.4\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -49,25 +49,27 @@ msgstr "Автоматическое переназначение клиентс
 msgid ""
 "Apt-Cacher NG can download packages from repositories other than those "
 "requested by the clients. This allows it to cache content effectively, and "
-"makes it easy for an administrator to switch to another mirror later."
+"makes it easy for an administrator to switch to another mirror later. The "
+"URL remapping can be set up automatically, using a configuration based on "
+"the current state of /etc/apt/sources.list."
 msgstr ""
 "Apt-Cacher NG может скачивать пакеты из репозиториев, отличных от "
-"запрашиваемых клиентами. Это позволяет эффективно кэшировать данные, и легко "
-"изменить сервер-зеркало, если потребуется."
+"запрашиваемых клиентами. Это позволяет эффективней кэшировать данные, и "
+"легко изменять сервер-зеркало, если потребуется. Это переназначение может "
+"быть настроено автоматически, исходя из актуального содержания файла /etc/"
+"apt/sources.list."
 
 #. Type: select
 #. Description
 #: ../apt-cacher-ng.templates:2002
 msgid ""
-"This remapping of URLs can be configured now in an automated way based on "
-"the current state of /etc/apt/sources.list. Optionally, this process can be "
-"repeated on every package update (modifying the configuration files each "
-"time)."
+"Please specify whether the remapping should be configured once now, or "
+"reconfigured on every update of Apt-Cacher NG (modifying the configuration "
+"files each time), or left unconfigured."
 msgstr ""
-"Сейчас можно выполнить автоматическую настройку данного переназначения URL-"
-"ов на основе текущего /etc/apt/sources.list. Также этот процесс может "
-"повторяться при каждом обновлении пакета (изменяя каждый раз файлы "
-"настройки)."
+"Выбирайте, когда настройка переназначение URL будет происходить: однократно "
+"(сейчас), после каждого обновления Apt-Cacher NG (позже переписывает "
+"конфигурацию), или никогда."
 
 #. Type: select
 #. Description
@@ -76,26 +78,47 @@ msgid ""
 "Selecting \"No automated setup\" will leave the existing configuration "
 "unchanged. It will need to be updated manually."
 msgstr ""
-"При выборе \"Не настраивать автоматически\" существующая настройка не "
-"изменится. Это нужно будет делать вручную."
+"При выборе «Не настраивать автоматически» существующая настройка не "
+"изменится. В этом случае обновления нужно будет делать вручную."
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:3001
-msgid "Bind Address(es):"
-msgstr ""
+msgid "Listening address(es) for Apt-Cacher NG:"
+msgstr "Прослушиваемыe адрес(а) для Apt-Cacher NG:"
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:3001
 msgid ""
-"Addresses or hostnames to listen on, multiple entries must be separated by "
-"spaces. Each entry must be an exact address (IP or hostname) which is "
-"associated with a local network interface. Generic protocol specific "
-"addresses are supported, like 0.0.0.0 for listening on all IPv4 enabled "
-"interfaces. Leaving this empty (the default setting) means listening on all "
-"interfaces and protocols."
+"Please specify the local addresses that Apt-Cacher NG should listen on "
+"(multiple entries must be separated by spaces)."
 msgstr ""
+"Укажите адреса или имена узлов, на которых нужно выполнять прослушивание; "
+"несколько элементов нужно разделять пробелами."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:3001
+msgid ""
+"Each entry must be an IP address or hostname associated with a local network "
+"interface. Generic protocol-specific addresses are also supported, such as "
+"0.0.0.0 for listening on all IPv4-enabled interfaces."
+msgstr ""
+"Каждый элемент должен быть адресом (IP или именем узла), который связан с "
+"локальным сетевым интерфейсом. Поддерживаются обобщённые адреса протоколов, "
+"например 0.0.0.0 служит для прослушивания на всех интерфейсах с включённым "
+"IPv4."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:3001
+msgid ""
+"If this field is left empty, Apt-Cacher NG will listen on all interfaces, "
+"with all supported protocols."
+msgstr ""
+"Если ничего не указывать (по умолчанию), то прослушивание ведётся на всех "
+"интерфейсах и по всем протоколам."
 
 #. Type: string
 #. Description
@@ -106,34 +129,40 @@ msgid ""
 "The special word \"keep\" keeps the value from the current (or default) "
 "configuration unchanged."
 msgstr ""
+"Специальное слово «keep» служит для сохранения текущего (или по умолчанию) "
+"значения настройки."
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:4001
 msgid "Listening TCP port:"
-msgstr ""
+msgstr "Прослушиваемый порт TCP:"
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:4001
 msgid ""
-"Configure at which TCP port should Apt-Cacher NG listen for incoming HTTP "
-"(proxy) requests. Default is port 3142, and it can be set to 9999 to emulate "
-"apt-proxy."
+"Please specify the TCP port that Apt-Cacher NG should listen on for incoming "
+"HTTP (proxy) requests. The default value is port 3142, but it can be set to "
+"9999 to emulate apt-proxy."
 msgstr ""
+"Укажите порт TCP, на котором Apt-Cacher NG должен принимать входящие запросы "
+"HTTP (прокси). По умолчанию используется порт 3142; для эмуляции apt-proxy "
+"можно указать значение 9999."
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:4001
 msgid ""
-"If left empty, the value from the current configuration remains unchanged."
-msgstr ""
+"If this field is left empty, the value from the current configuration "
+"remains unchanged."
+msgstr "Если ничего не указывать, то текущее значение настройки не изменяется."
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:5001
-msgid "Top level directory for package cache:"
-msgstr ""
+msgid "Top-level directory for package cache:"
+msgstr "Каталоге верхнего уровня кэша пакетов:"
 
 #. Type: string
 #. Description
@@ -142,27 +171,61 @@ msgid ""
 "The main cache storage directory should be located on a file system without "
 "file name restrictions."
 msgstr ""
+"Каталог главного кэша хранилища пакетов должен располагаться в файловой "
+"системе без ограничений на имена файлов."
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:5001
 msgid ""
-"If left empty, the value from the current configuration remains unchanged or "
-"is set to default directory /var/cache/apt-cacher-ng."
+"If this field is left empty, the value from the current configuration "
+"remains unchanged or is set to the default of /var/cache/apt-cacher-ng."
 msgstr ""
+"Если ничего не указывать, то текущее значение настройки не изменяется или по "
+"умолчанию устанавливается значение каталога /var/cache/apt-cacher-ng."
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:6001
 msgid "Proxy to use for downloads:"
-msgstr ""
+msgstr "Прокси, используемый для скачивания:"
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:6001
+msgid "Please specify the proxy server to use for downloads."
+msgstr "Пожалуйста укажите прокси, используемый для скачивания:"
 
 #. Type: string
 #. Description
 #: ../apt-cacher-ng.templates:6001
 msgid ""
-"The specification of another proxy which shall be used for downloads. "
 "Username and password for the proxy server can be included here following "
-"the user:pass@host:port scheme but see the manual for limitations. If set to "
-"empty, direct connection is used."
+"the user:pass@host:port scheme. However, please check the documentation for "
+"limitations."
 msgstr ""
+"Имя пользователя и пароль прокси-сервера можно указать в виде схемы "
+"пользователь:пароль@узел:порт, но смотрите описание ограничений в "
+"руководстве. Если ничего не указывать, то используется непосредственное "
+"соединение."
+
+#. Type: string
+#. Description
+#: ../apt-cacher-ng.templates:6001
+msgid ""
+"If this field is left empty, Apt-Cacher NG will not use any proxy server."
+msgstr "Если не указано, Apt-Cacher NG не будет использовать других прокси."
+
+#~ msgid ""
+#~ "This remapping of URLs can be configured now in an automated way based on "
+#~ "the current state of /etc/apt/sources.list. Optionally, this process can "
+#~ "be repeated on every package update (modifying the configuration files "
+#~ "each time)."
+#~ msgstr ""
+#~ "Сейчас можно выполнить автоматическую настройку данного переназначения "
+#~ "URL-ов на основе текущего /etc/apt/sources.list. Также этот процесс может "
+#~ "повторять при каждом обновлении пакета (изменяя каждый раз файлы "
+#~ "настройки)."
+
+#~ msgid "Bind Address(es):"
+#~ msgstr "Привязка к адресу(ам):"

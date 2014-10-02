@@ -136,29 +136,33 @@ if [ "$1" = "configure" ]; then
    db_get $NAME/cachedir
    case "$RET" in
       keep|"")
-         # not to be set by debconf mechanism, use whatever we have
-         CDIR=$(PRINTCFGVAR=CacheDir $BINPATH -c $CFG 2>/dev/null)
-         CDIRCONF="# not set by debconf"
+         # but making sure that it's really set to something sensible in the
+         # config, otherwise replace with the default
+         if ! TESTPATH=$(PRINTCFGVAR=CacheDir $BINPATH -c $CFG 2>/dev/null) ; then
+            # ok, some IO trouble is bad but in this case just behave like it
+            # did in the former times with a static /v/c/a-c-n folder setting
+            CDIR=/var/cache/$NAME
+            CDIRCONF="# CacheDir not set, having trouble reading config files"
+         elif test -d "$TESTPATH" ; then
+            CDIR="$TESTPATH"
+            CDIRCONF="# CacheDir not set by debconf"
+         else
+            CDIR=/var/cache/$NAME
+            CDIRCONF="CacheDir: $CDIR # default or overridden since '$TESTPATH' directory didn't exist"
+         fi
          ;;
       *)
-         # ok, configured by debconf
+         # ok, configured by debconf, will be created as needed
          CDIR="$RET"
          CDIRCONF="CacheDir: $RET"
          ;;
    esac
 
-   # make sure it's set even if commented out by the user
-   TESTPATH=$(PRINTCFGVAR=CacheDir $BINPATH -c $CFG 2>/dev/null)
-   if test -e "$TESTPATH" ; then
-      CDIR=/var/cache/$NAME
-      CDIRCONF="CacheDir: $CDIR"
-   fi
-
    # user should exist. adduser sometimes fails (system range issue) but that's ok
    adduser --quiet --system --group --no-create-home --home "$CDIR" $NAME || id $NAME
    # also setup permissions ASAP
    if [ -z "$(dpkg-statoverride --list $CFG/security.conf)" ] ; then
-      dpkg-statoverride --update --add apt-cacher-ng apt-cacher-ng 600 $CFG/security.conf
+      dpkg-statoverride --update --add root $NAME 640 $CFG/security.conf
    fi
 
    # be sure about that even if the user messed it up
@@ -199,7 +203,7 @@ if [ "$1" = "configure" ]; then
 
    db_get $NAME/bindaddress
    BINDADDRESS="$RET"
-   if [ x"$BINDADDRESS" = x"all" ] ; then
+   if [ x"$BINDADDRESS" = x"all" ] ; then # just for backwards compatibility
       BINDADDRESS='BindAddress: '
    elif [ x"$BINDADDRESS" = x"keep" ] ; then
       BINDADDRESS='# BindAddress is set by other config file(s)'
@@ -224,7 +228,7 @@ if [ "$1" = "configure" ]; then
    else
       if echo "$PROXY" |grep -q '@' ; then
          # well, there are credentials which is bad. This better goes into a file with restricted permissions.
-         install -m 600 -o apt-cacher-ng -g apt-cacher-ng /dev/null $CFG/zz_debconf_security.conf
+         install -m 640 -o root -g $NAME /dev/null $CFG/zz_debconf_security.conf
          cat << HERESEC >$CFG/zz_debconf_security.conf
 # This file is created if the proxy contains user/password data
 # and is removed otherwise.

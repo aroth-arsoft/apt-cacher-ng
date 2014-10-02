@@ -3,17 +3,12 @@
 . /usr/share/debconf/confmodule
 
 NAME=apt-cacher-ng
-db_get $NAME/cachedir
-CDIR="$RET"
+CDIR=/var/cache/$NAME
 LDIR=/var/log/$NAME
-CFG=/etc/apt-cacher-ng
+CFG=/etc/$NAME
 
 if [ "$1" = "purge" ]; then
-
-   if ! test -e "$CDIR" ; then
-      CDIR=$(grep -i ^CacheDir[:=] /etc/apt-cacher-ng/*.conf 2>/dev/null | tail -n1 | sed -e 's,.*[:=] *,,;s,#.*,,;s,^[[:space:]]+,,;s,[[:space:]]+$,,;')
-   fi
-   test -e "$CDIR" && rm -rf "$CDIR"
+   rm -rf "$CDIR"
    rm -f $LDIR/apt-cacher.err $LDIR/apt-cacher.log $LDIR/apt-cacher.log.* $LDIR/maint_*.log
    rmdir $LDIR 2>/dev/null || true
    rm -rf /var/lib/apt-cacher-ng
