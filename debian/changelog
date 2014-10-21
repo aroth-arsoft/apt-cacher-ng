@@ -1,3 +1,30 @@
+apt-cacher-ng (0.8.0-1.1) trusty; urgency=medium
+
+  * bring the latest version to ubuntu
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Tue, 21 Oct 2014 18:40:30 +0200
+
+apt-cacher-ng (0.8.0-1) unstable; urgency=medium
+
+  * New upstream version
+    + workaround for processing of damaged caches in maintenance tasks
+      (smarter/optimistic download source guessing, closes: #737069)
+  * Dutch Debconf strings translation update by Frans Spiesschaert
+    (closes: #764082)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 20 Oct 2014 22:52:25 +0200
+
+apt-cacher-ng (0.8.0~rc4-1) unstable; urgency=low
+
+  * New upstream version
+    + fixes missing EOF chunk for some generated responses (closes: 765963)
+    + deep review and fixing of extra file download code acting in
+      repository space without backend specification (closes: #737069)
+    + fixes FTBFS for non-Linux targets (closes: #763685), and debian/rules
+      now detects the usage of sd_notify by looking at build system state
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 04 Oct 2014 00:01:06 +0200
+
 apt-cacher-ng (0.8.0~rc3-1.1~aroth~ppa1) trusty; urgency=medium
 
   * bring new upstream version to trusty
