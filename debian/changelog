@@ -1,3 +1,76 @@
+apt-cacher-ng (0.8.4-1.1~aroth~ppa1) vivid; urgency=medium
+
+  * bring latest version to ubuntu
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 25 Jul 2015 15:28:14 +0200
+
+apt-cacher-ng (0.8.4-1) experimental; urgency=low
+
+  * New upstream version
+    + Fixes creation of pidfile even in foreground mode (closes: #784752)
+  * Added pt_BR.po update (by Adriano Rafael Gomes, closes: #785471)
+  * Getting rid of "ed" recommendation, new version brings a faster
+    replacement (closes: #772529)
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 18 Jun 2015 22:28:00 +0200
+
+apt-cacher-ng (0.8.3-1) unstable; urgency=medium
+
+  * New upstream version
+    + solves the expiration hickup with disappeared .bz2 file versions
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 02 May 2015 17:20:16 +0200
+
+apt-cacher-ng (0.8.2-1) unstable; urgency=low
+
+  * New upstream version
+    + forwarding of bugs.debian.org SOAP traffic through proxy cascades
+      and potential bugfixes of its transport code (closes: #775126)
+    + includes httpredir.debian.org in the mirror list (closes: #782643)
+    + adds routing of HTTPS traffic through proxy cascades (closes: #734581)
+    + improves HTTPS tunnel config documentation (closes: #779175)
+    + adds documentation and example on how to track SIGBUS restarts to the
+      (probably damaged) last open files (closes: #773825)
+
+  [ Felix Geyer ]
+  * added quiet option to systemctl calls to make logrotate less noisy
+    (closes: #782562)
+
+ -- Eduard Bloch <blade@debian.org>  Wed, 29 Apr 2015 11:31:38 +0200
+
+apt-cacher-ng (0.8.1-1) unstable; urgency=low
+
+  * New upstream version
+    + transition to libsystemd without -daemon where possible (closes: #779739)
+    + LTO disabled by default (closes: #777753)
+    + *.o file download as volatile type (LP: #1078224)
+    + more Fedora mirrors (Carlos Maddela, closes: #780555)
+    + corrects handling of SPfilePatternEx (Carlos Maddela, closes: #780550)
+  * Debconf question to enable HTTP tunnels, e.g. for https (closes: #734581)
+  * Debconf translation updates: German (Holger Wansing, closes: #781921),
+    French (Jean-Baka Domelevo Entfellner, closes: #782026), Italian (Beatrice
+    Torracca, closes: #782013), Dutch (Frans Spiesschaert), Polish (Łukasz
+    <BartekChom@poczta.onet.pl>), Swedish (Martin Bagge, Anders Jonsson,
+    closes: #781672), Czech (Miroslav Kure, closes: #781447), Russian (Yuri
+    Kozlov, closes: #781364), Danish (Joe Dalton, closes: #781328)
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 10 Apr 2015 23:40:20 +0200
+
+apt-cacher-ng (0.8.0-3) unstable; urgency=medium
+
+  * Restored build-dependency on libsystemd-daemond-dev since upstream source
+    didn't cope with that change (yet)
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 28 Nov 2014 21:05:16 +0100
+
+apt-cacher-ng (0.8.0-2) unstable; urgency=medium
+
+  * Send SIGUSR1 properly to reopen the logs when controlled by systemd
+    (closes: Bug#771111)
+  * replace build-dependency on transitional package libsystemd-daemond-dev
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 28 Nov 2014 08:14:54 +0100
+
 apt-cacher-ng (0.8.0-1.1) trusty; urgency=medium
 
   * bring the latest version to ubuntu
