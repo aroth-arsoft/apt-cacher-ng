@@ -5,17 +5,16 @@ Description: <short summary of the patch>
  information below has been extracted from the changelog. Adjust it or drop
  it.
  .
- apt-cacher-ng (0.8.4-1) experimental; urgency=low
+ apt-cacher-ng (0.8.5-1) unstable; urgency=low
  .
    * New upstream version
-     + Fixes creation of pidfile even in foreground mode (closes: #784752)
-   * Added pt_BR.po update (by Adriano Rafael Gomes, closes: #785471)
-   * Getting rid of "ed" recommendation, new version brings a faster
-     replacement (closes: #772529)
+     + Avoid double slashes in automated downloads (closes: #793356)
+     + debian/copyright update (SHA2 implementations, although unused by us)
+   * Make sure that service runs on localhost before starting expiration task
+     in cron.daily (closes: #794098)
 Author: Eduard Bloch <blade@debian.org>
-Bug-Debian: https://bugs.debian.org/772529
-Bug-Debian: https://bugs.debian.org/784752
-Bug-Debian: https://bugs.debian.org/785471
+Bug-Debian: https://bugs.debian.org/793356
+Bug-Debian: https://bugs.debian.org/794098
 
 ---
 The information above should follow the Patch Tagging Guidelines, please
@@ -30,8 +29,8 @@ Forwarded: <no|not-needed|url proving that it has been forwarded>
 Reviewed-By: <name and email of someone who approved the patch>
 Last-Update: <YYYY-MM-DD>
 
---- apt-cacher-ng-0.8.4.orig/scripts/expire-caller.pl
-+++ apt-cacher-ng-0.8.4/scripts/expire-caller.pl
+--- apt-cacher-ng-0.8.5.orig/scripts/expire-caller.pl
++++ apt-cacher-ng-0.8.5/scripts/expire-caller.pl
 @@ -37,7 +37,7 @@ sub toBase64
     {
        # dirty little helper
