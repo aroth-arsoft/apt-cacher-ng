@@ -1,3 +1,9 @@
+apt-cacher-ng (0.8.5-1.1~aroth~ppa1) vivid; urgency=medium
+
+  * backport latest version
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 01 Aug 2015 11:36:41 +0200
+
 apt-cacher-ng (0.8.5-1) unstable; urgency=low
 
   * New upstream version
