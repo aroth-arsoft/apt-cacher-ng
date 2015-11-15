@@ -1,3 +1,29 @@
+apt-cacher-ng (0.8.6-1.1~aroth~ppa1) wily; urgency=medium
+
+  * bring latest version to ubuntu
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 15 Nov 2015 10:54:06 +0100
+
+apt-cacher-ng (0.8.6-1) unstable; urgency=low
+
+  * New upstream version
+    + replaces the expiration call mechanism and script with native
+      implementation (closes: 794328)
+  * Changed error log rotation schedule to daily execution (to expire some
+    cruft from ancient bugs sooner or later)
+  * removed urlencode-fixer.pl (should be obsolete now), expire-caller.pl
+    (symlink to acngtool which emulates it)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 21 Sep 2015 21:35:41 +0200
+
+apt-cacher-ng (0.8.5-2) unstable; urgency=low
+
+  * Check for systemd presence before looking for running instance of the
+    daemon in the cron job (thanks to Dominic Hargreaves and Harald Dunkel,
+    closes: #794923)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 05 Sep 2015 16:32:06 +0200
+
 apt-cacher-ng (0.8.5-1.1~aroth~ppa1) vivid; urgency=medium
 
   * backport latest version
