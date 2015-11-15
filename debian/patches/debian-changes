@@ -42,3 +42,8 @@ Last-Update: <YYYY-MM-DD>
 +#include <tr1/memory>
 +int main() { return NULL != std::tr1::shared_ptr<int>(new int(1)); }
 +
+--- /dev/null
++++ apt-cacher-ng-0.8.6/distclean
+@@ -0,0 +1,2 @@
++#!/bin/sh
++rm -rf builddir
