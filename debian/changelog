@@ -1,3 +1,9 @@
+apt-cacher-ng (0.8.6-1.1~aroth~ppa3) precise; urgency=medium
+
+  * one more try
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 15 Nov 2015 11:32:48 +0100
+
 apt-cacher-ng (0.8.6-1.1~aroth~ppa2) precise; urgency=medium
 
   * try to restore precise version
