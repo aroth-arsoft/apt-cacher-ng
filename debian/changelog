@@ -1,3 +1,9 @@
+apt-cacher-ng (0.8.8-1.1~aroth~ppa1) wily; urgency=medium
+
+  * backport
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 10 Jan 2016 15:36:00 +0100
+
 apt-cacher-ng (0.8.8-1) unstable; urgency=medium
 
   * New minor version
